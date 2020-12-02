@@ -4,12 +4,13 @@ using System.Linq;
 
 namespace AdventOfCode.Challenges
 {
-    class Day1 : IChallenge
+    internal class Day_1 : AChallenge
     {
 
-        public void PartTwo(List<string> input)
+        public override string PartTwo()
         {
-            var list = input.Select(k => Convert.ToInt32(k)).ToList();
+            var list = Input.Select(k => Convert.ToInt32(k)).ToList();
+            var result = string.Empty;
 
             var finished = false;
             foreach (var item in list)
@@ -21,7 +22,7 @@ namespace AdventOfCode.Challenges
                     var zahl3 = remainder1 - i;
                     if (list.Contains(zahl3))
                     {
-                        Console.WriteLine($"Zahl1: {item}, Zahl2: {i}, Zahl3: {zahl3}, Ergebnis: {item * i * zahl3}");
+                        result = $"Zahl1: {item}, Zahl2: {i}, Zahl3: {zahl3}, Ergebnis: {item * i * zahl3}";
                         finished = true;
 
                         break;
@@ -33,11 +34,14 @@ namespace AdventOfCode.Challenges
                     }
                 }
             }
+
+            return result;
         }
 
-        public void PartOne(List<string> input)
+        public override string PartOne()
         {
-            var list = input.Select(k=>Convert.ToInt32(k)).ToList();
+            var list = Input.Select(k=>Convert.ToInt32(k)).ToList();
+            var result = string.Empty;
 
             foreach (var item in list)
             {
@@ -45,10 +49,12 @@ namespace AdventOfCode.Challenges
 
                 if (list.Contains(remainder))
                 {
-                    Console.WriteLine($"Zahl1: {item}, Zahl2: {remainder}, Ergebnis: {item * remainder}");
+                    result = $"Zahl1: {item}, Zahl2: {remainder}, Ergebnis: {item * remainder}";
                     break;
                 }
             }
+
+            return result;
         }
     }
 }

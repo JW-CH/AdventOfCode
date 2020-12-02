@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using AdventOfCode.Challenges;
 
 namespace AdventOfCode
@@ -9,25 +7,19 @@ namespace AdventOfCode
     {
         static void Main(string[] args)
         {
-            IChallenge challenge = new Day2();
-            var input = GetInput(@"./Inputs/day2.txt");
+            AChallenge challenge = new Day_1();
+
+            Console.WriteLine(challenge.GetType());
+            Console.WriteLine("");
 
             Console.WriteLine(nameof(challenge.PartOne));
-            challenge.PartOne(input);
-
+            Console.WriteLine(challenge.PartOne());
             Console.WriteLine("");
 
             Console.WriteLine(nameof(challenge.PartTwo));
-            challenge.PartTwo(input);
+            Console.WriteLine(challenge.PartTwo());
 
             Console.ReadLine();
-        }
-
-        private static List<string> GetInput(string path)
-        {
-            string[] lines = System.IO.File.ReadAllLines(path);
-
-            return lines.ToList();
         }
     }
 }

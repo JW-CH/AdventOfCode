@@ -5,14 +5,14 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode.Challenges
 {
-    public class Day3 : IChallenge
+    public class Day_3 : AChallenge
     {
-        public void PartOne(List<string> input)
+        public override string PartOne()
         {
             throw new NotImplementedException();
         }
 
-        public void PartTwo(List<string> input)
+        public override string PartTwo()
         {
             throw new NotImplementedException();
         }
