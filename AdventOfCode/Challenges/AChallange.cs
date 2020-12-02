@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 
@@ -16,6 +17,7 @@ namespace AdventOfCode.Challenges
         /// Expected input file extension.
         /// </summary>
         protected virtual string InputFileExtension { get; } = ".txt";
+        public string DayName() => CalculateIndex().ToString("D2");
 
         private List<string> _input;
         /// <summary>
@@ -59,14 +61,84 @@ namespace AdventOfCode.Challenges
         {
             get
             {
-                var index = CalculateIndex().ToString("D2");
-
-                var s = Path.Combine(InputFileDirPath, $"{index}.{InputFileExtension.TrimStart('.')}");
+                var s = Path.Combine(InputFileDirPath, $"{DayName()}.{InputFileExtension.TrimStart('.')}");
                 return s;
             }
         }
 
         public abstract string PartOne();
         public abstract string PartTwo();
+
+        public IEnumerable<(TimeSpan time, object result, bool error)> GetResults()
+        {
+            var res1 = (TimeSpan.Zero, (object)null, true);
+            var res2 = (TimeSpan.Zero, (object)null, true);
+            try
+            {
+                var now = DateTime.Now;
+                res1.Item2 = PartOne();
+                res1.Zero = DateTime.Now - now;
+                res1.Item3 = false;
+            }
+            catch (NotImplementedException e)
+            {
+                res1.Item2 = "Not Implemented yet";
+            }
+            try
+            {
+                var now = DateTime.Now;
+                res2.Item2 = PartTwo();
+                res2.Zero = DateTime.Now - now;
+                res2.Item3 = false;
+            }
+            catch (NotImplementedException e)
+            {
+                res2.Item2 = "Not Implemented yet";
+            }
+
+            yield return res1;
+            yield return res2;
+        }
+
+        public void Solve()
+        {
+            WriteLine(ConsoleColor.Blue, $"========= Day {DayName()} =========");
+            WriteLine();
+
+            var dt = DateTime.Now;
+            foreach (var line in GetResults())
+            {
+                var now = DateTime.Now;
+                var (statusColor, status) =
+                    !line.error ? (ConsoleColor.DarkGreen, "OK") :
+                        (ConsoleColor.Red, "X");
+
+                Write(statusColor, $"  {status}");
+                Console.Write($" {line.result} ");
+                var diff = line.time.TotalMilliseconds;
+                WriteLine(
+                    diff > 1000 ? ConsoleColor.Red :
+                    diff > 500 ? ConsoleColor.Yellow :
+                    ConsoleColor.DarkGreen,
+                    $"({diff.ToString("F3")} ms)"
+                );
+                dt = DateTime.Now;
+            }
+            WriteLine();
+        }
+
+
+        private void WriteLine(ConsoleColor color = ConsoleColor.Gray, string text = "")
+        {
+            Write(color, text + "\n");
+        }
+        private void Write(ConsoleColor color = ConsoleColor.Gray, string text = "")
+        {
+            var c = Console.ForegroundColor;
+            Console.ForegroundColor = color;
+            Console.Write(text);
+            Console.ForegroundColor = c;
+        }
+
     }
 }

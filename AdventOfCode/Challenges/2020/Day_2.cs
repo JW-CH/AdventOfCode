@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace AdventOfCode.Challenges
+namespace AdventOfCode.Challenges._2020
 {
     internal class Day_2 : AChallenge
     {
-
         public override string PartOne()
         {
             var validPasswords = 0;

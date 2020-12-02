@@ -2,10 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AdventOfCode.Challenges
+namespace AdventOfCode.Challenges._2020
 {
     internal class Day_1 : AChallenge
     {
+        public override string PartOne()
+        {
+            var list = Input.Select(k=>Convert.ToInt32((string?) k)).ToList();
+            var result = string.Empty;
+
+            foreach (var item in list)
+            {
+                var remainder = 2020 - item;
+
+                if (list.Contains(remainder))
+                {
+                    result = $"Number1: {item}, Number2: {remainder}, Result: {item * remainder}";
+                    break;
+                }
+            }
+
+            return result;
+        }
 
         public override string PartTwo()
         {
@@ -19,10 +37,10 @@ namespace AdventOfCode.Challenges
 
                 foreach (var i in list.Where(k => k < remainder1))
                 {
-                    var zahl3 = remainder1 - i;
-                    if (list.Contains(zahl3))
+                    var number3 = remainder1 - i;
+                    if (list.Contains(number3))
                     {
-                        result = $"Zahl1: {item}, Zahl2: {i}, Zahl3: {zahl3}, Ergebnis: {item * i * zahl3}";
+                        result = $"Number1: {item}, Number2: {i}, Number3: {number3}, Result: {item * i * number3}";
                         finished = true;
 
                         break;
@@ -32,25 +50,6 @@ namespace AdventOfCode.Challenges
                     {
                         break;
                     }
-                }
-            }
-
-            return result;
-        }
-
-        public override string PartOne()
-        {
-            var list = Input.Select(k=>Convert.ToInt32(k)).ToList();
-            var result = string.Empty;
-
-            foreach (var item in list)
-            {
-                var remainder = 2020 - item;
-
-                if (list.Contains(remainder))
-                {
-                    result = $"Zahl1: {item}, Zahl2: {remainder}, Ergebnis: {item * remainder}";
-                    break;
                 }
             }
 

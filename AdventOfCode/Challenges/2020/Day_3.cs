@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
+using System.Text;
 
-namespace AdventOfCode.Challenges
+namespace AdventOfCode.Challenges._2020
 {
-    public class Day_3 : AChallenge
+    class Day_3 : AChallenge
     {
         public override string PartOne()
         {
