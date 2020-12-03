@@ -11,13 +11,13 @@ namespace AdventOfCode.Challenges
         /// <summary>
         /// Expected input file dir path.
         /// </summary>
-        protected virtual string InputFileDirPath { get; } = "Inputs";
+        protected virtual string InputFileDirPath => "Inputs";
 
         /// <summary>
         /// Expected input file extension.
         /// </summary>
-        protected virtual string InputFileExtension { get; } = ".txt";
-        public string DayName() => CalculateIndex().ToString("D2");
+        protected virtual string InputFileExtension => ".txt";
+        public string DayName => CalculateIndex().ToString("D2");
 
         private List<string> _input;
         /// <summary>
@@ -61,7 +61,7 @@ namespace AdventOfCode.Challenges
         {
             get
             {
-                var s = Path.Combine(InputFileDirPath, $"{DayName()}.{InputFileExtension.TrimStart('.')}");
+                var s = Path.Combine(InputFileDirPath, $"{DayName}.{InputFileExtension.TrimStart('.')}");
                 return s;
             }
         }
@@ -102,7 +102,7 @@ namespace AdventOfCode.Challenges
 
         public void Solve()
         {
-            WriteLine(ConsoleColor.Blue, $"========= Day {DayName()} =========");
+            WriteLine(ConsoleColor.Blue, $"========= Day {DayName} =========");
             WriteLine();
 
             var dt = DateTime.Now;
