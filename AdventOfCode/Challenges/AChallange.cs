@@ -41,6 +41,28 @@ namespace AdventOfCode.Challenges
             }
         }
 
+        private string _inputText;
+        /// <summary>
+        /// Input as list from the file provided in InputFilePath
+        /// </summary>
+        public string InputText
+        {
+            get
+            {
+                if (_inputText == null)
+                {
+                    if (!File.Exists(InputFilePath))
+                    {
+                        throw new Exception($"Path {InputFilePath} not found for {GetType().Name}");
+                    }
+
+                    _inputText = File.ReadAllText(InputFilePath);
+                }
+
+                return _inputText;
+            }
+        }
+
         /// <summary>
         /// Gets day as int from the ClassName
         /// </summary>
