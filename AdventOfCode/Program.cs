@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using AdventOfCode.Challenges;
-using AdventOfCode.Challenges._2020;
 
 namespace AdventOfCode
 {
@@ -12,7 +8,7 @@ namespace AdventOfCode
         static void Main(string[] args)
         {
             //Solver.Solve<Day_1>();
-            Solver.Solve(typeof(IChallenge));
+            Solver.Solve(typeof(AChallenge2020));
 
             Console.WriteLine("Done");
             Console.ReadLine();
