@@ -10,7 +10,7 @@ namespace AdventOfCode
     {
 
         public static void Solve<T>(bool clearConsole = true)
-            where T : AChallenge, new()
+            where T : IChallenge, new()
         {
             T challenge = new T();
 
@@ -22,7 +22,7 @@ namespace AdventOfCode
             var c = LoadChallenges(Assembly.GetEntryAssembly()!);
             foreach (Type challengeType in c)
             {
-                if (typeof(AChallenge).IsAssignableFrom(type) && Activator.CreateInstance(challengeType) is AChallenge challenge)
+                if (type.IsAssignableFrom(challengeType) && Activator.CreateInstance(challengeType) is IChallenge challenge)
                 {
                     challenge.Solve();
                 }
@@ -32,7 +32,7 @@ namespace AdventOfCode
         private static IEnumerable<Type> LoadChallenges(Assembly assembly)
         {
             return assembly.GetTypes()
-                .Where(type => typeof(AChallenge).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract);
+                .Where(type => typeof(IChallenge).IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract);
         }
     }
 }

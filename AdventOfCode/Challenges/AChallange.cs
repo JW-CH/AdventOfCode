@@ -6,7 +6,12 @@ using System.Linq;
 
 namespace AdventOfCode.Challenges
 {
-    public abstract class AChallenge
+    public interface IChallenge
+    {
+        public void Solve();
+    }
+
+    public abstract class AChallenge2020 : IChallenge
     {
         /// <summary>
         /// Expected input file dir path.
@@ -163,4 +168,5 @@ namespace AdventOfCode.Challenges
         }
 
     }
+
 }

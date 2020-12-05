@@ -12,7 +12,7 @@ namespace AdventOfCode
         static void Main(string[] args)
         {
             //Solver.Solve<Day_1>();
-            Solver.Solve(typeof(AChallenge));
+            Solver.Solve(typeof(IChallenge));
 
             Console.WriteLine("Done");
             Console.ReadLine();
