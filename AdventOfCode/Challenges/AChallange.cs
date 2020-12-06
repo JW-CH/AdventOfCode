@@ -101,6 +101,12 @@ namespace AdventOfCode.Challenges
             var res2 = (TimeSpan.Zero, (object)null, true);
             try
             {
+                // WarmUp
+                for (int i = 0; i < 5; i++)
+                {
+                    PartOne();
+                }
+
                 var now = DateTime.Now;
                 res1.Item2 = PartOne();
                 res1.Zero = DateTime.Now - now;
@@ -112,6 +118,12 @@ namespace AdventOfCode.Challenges
             }
             try
             {
+                // WarmUp
+                for (int i = 0; i < 5; i++)
+                {
+                    PartTwo();
+                }
+
                 var now = DateTime.Now;
                 res2.Item2 = PartTwo();
                 res2.Zero = DateTime.Now - now;
@@ -143,8 +155,8 @@ namespace AdventOfCode.Challenges
                 Console.Write($" {line.result} ");
                 var diff = line.time.TotalMilliseconds;
                 WriteLine(
-                    diff > 1000 ? ConsoleColor.Red :
-                    diff > 500 ? ConsoleColor.Yellow :
+                    diff > 10 ? ConsoleColor.Red :
+                    diff > 5 ? ConsoleColor.Yellow :
                     ConsoleColor.DarkGreen,
                     $"({diff.ToString("F3")} ms)"
                 );
