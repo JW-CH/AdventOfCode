@@ -51,7 +51,7 @@ namespace AdventOfCode.Challenges._2020
             return $"Result: {list.Sum()}";
         }
 
-        public IEnumerable<HashSet<char>> GetAnswersCombined()
+        private IEnumerable<HashSet<char>> GetAnswersCombined()
         {
             var groupAnswer = InputText.Split("\r\n\r\n").ToList();
 
@@ -60,7 +60,7 @@ namespace AdventOfCode.Challenges._2020
             return hashSet;
         }
 
-        public IEnumerable<List<char[]>> GetAnswers()
+        private IEnumerable<List<char[]>> GetAnswers()
         {
             var groupAnswer = InputText.Split("\r\n\r\n").ToList();
 

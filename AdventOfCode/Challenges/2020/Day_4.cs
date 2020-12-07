@@ -126,7 +126,7 @@ namespace AdventOfCode.Challenges._2020
             return $"Valid passports: {validPassports}";
         }
 
-        public List<Dictionary<string, string>> GetPassports()
+        private List<Dictionary<string, string>> GetPassports()
         {
             var passports = InputText.Split("\r\n\r\n").ToList();
 

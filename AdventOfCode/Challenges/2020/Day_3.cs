@@ -6,9 +6,6 @@ namespace AdventOfCode.Challenges._2020
     {
         public override string PartOne()
         {
-
-
-
             var trees = EncounterTreesOptimized(3, 1);
 
             //var text = "";
@@ -31,7 +28,7 @@ namespace AdventOfCode.Challenges._2020
             return $"Result: {option1 }, { option2 }, { option3 }, { option4 }, { option5} -> {(double)option1 * option2 * option3 * option4 * option5}";
         }
 
-        public char[][] GetMap()
+        private char[][] GetMap()
         {
             var map = Input.Select(k => k.ToCharArray()).ToArray();
 
@@ -62,7 +59,6 @@ namespace AdventOfCode.Challenges._2020
 
             return trees;
         }
-
 
         private int EncounterTrees(int moveX, int moveY)
         {
