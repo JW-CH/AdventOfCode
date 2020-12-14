@@ -2,7 +2,7 @@
 
 namespace AdventOfCode.Challenges._2020
 {
-    class Day_3 : AChallenge2020
+    class Day_03 : AChallenge2020
     {
         public override string PartOne()
         {

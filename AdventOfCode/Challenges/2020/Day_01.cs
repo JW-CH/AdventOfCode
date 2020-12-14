@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace AdventOfCode.Challenges._2020
 {
-    internal class Day_1 : AChallenge2020
+    class Day_01 : AChallenge2020
     {
         public override string PartOne()
         {

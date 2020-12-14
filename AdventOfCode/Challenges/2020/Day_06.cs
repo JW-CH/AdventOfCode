@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AdventOfCode.Challenges._2020
 {
-    class Day_6 : AChallenge2020
+    class Day_06 : AChallenge2020
     {
         public override string PartOne()
         {

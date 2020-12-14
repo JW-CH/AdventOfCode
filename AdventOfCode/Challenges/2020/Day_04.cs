@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode.Challenges._2020
 {
-    class Day_4 : AChallenge2020
+    class Day_04 : AChallenge2020
     {
         public override string PartOne()
         {
