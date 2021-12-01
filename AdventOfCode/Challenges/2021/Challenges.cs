@@ -10,11 +10,8 @@ namespace AdventOfCode.Challenges._2021
         {
             var list = Input.Select(k => Convert.ToInt32(k)).ToList();
             var increases = 0;
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count-1; i++)
             {
-                if (i + 1 == list.Count)
-                    break;
-
                 if (list[i] < list[i + 1])
                     increases++;
             }
