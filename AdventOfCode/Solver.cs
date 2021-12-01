@@ -6,7 +6,7 @@ using AdventOfCode.Challenges;
 
 namespace AdventOfCode
 {
-    class Solver
+    public class Solver
     {
 
         public static void Solve<T>(bool clearConsole = true)
