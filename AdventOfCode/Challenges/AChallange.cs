@@ -98,12 +98,13 @@ namespace AdventOfCode.Challenges
 
         public IEnumerable<(TimeSpan time, object result, bool error, int part)> GetResults()
         {
+            var warmups = 10;
             var res1 = (TimeSpan.Zero, (object)null, true, 1);
             var res2 = (TimeSpan.Zero, (object)null, true, 2);
             try
             {
                 // WarmUp
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < warmups; i++)
                 {
                     PartOne();
                 }
@@ -120,7 +121,7 @@ namespace AdventOfCode.Challenges
             try
             {
                 // WarmUp
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < warmups; i++)
                 {
                     PartTwo();
                 }
